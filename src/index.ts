@@ -83,3 +83,41 @@ console.log(phases)
 
 
 
+
+//Phase 3 — Generate GitHub Issue Markdown
+
+// Phase object
+//     ↓
+// convert
+//     ↓
+// GitHub issue body
+
+function createIssueBody(phase: Phase): string {
+  const tasks = phase.tasks
+    .map((task) => `- [ ] ${task}`)
+    .join('\n')
+
+  return `
+## Tasks
+
+${tasks}
+
+## Definition of Done
+
+This phase is complete when all tasks above are finished.
+`
+}
+
+
+
+// for each phrase in phrase start a new line and grab the title
+//then map through each task and list it under the title
+for (const phase of phases) {
+  console.log('\n--------------------')
+  console.log(phase.title)
+  console.log(createIssueBody(phase))
+}
+
+
+
+
