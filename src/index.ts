@@ -1,3 +1,8 @@
+const { readFileSync } = require('node:fs') as typeof import('node:fs')
+
+const designDoc = readFileSync('design-doc.md', 'utf-8')
+
+console.log(designDoc)
 
 
 // The Phase type must have a title and an array of task
