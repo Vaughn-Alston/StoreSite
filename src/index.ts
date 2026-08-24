@@ -1,5 +1,6 @@
 const { readFileSync } = require('node:fs') as typeof import('node:fs')
 
+//This will read from my design-doc.md in my directory
 const designDoc = readFileSync('design-doc.md', 'utf-8')
 
 console.log(designDoc)
@@ -11,30 +12,9 @@ type Phase = {
   tasks: string[]
 }
 
-// Here will be my array of phases
-const designDoc = `
-Phase 1 — Static Frontend
 
-- Header
-- Navigation
-- Hero
-- Product cards
 
-Phase 2 — React Data
 
-- Product array
-- ProductCard component
-- Add product
-- Delete product
-
-Phase 3 — Supabase
-
-- Create Supabase project
-- Create products table
-- Fetch products
-`
-
-// End of my array here
 
 //Here I have a function expecting a string
 function parsePhases(text: string): Phase[] {
@@ -51,6 +31,10 @@ function parsePhases(text: string): Phase[] {
 //loop through each line
   for (const line of lines) {
     const trimmedLine = line.trim()
+
+    
+
+  console.log(JSON.stringify(trimmedLine))
 
 //This will be what indicates the agent to read from Phase, I can change to be more specific
     if (trimmedLine.startsWith('Phase ')) {
@@ -84,7 +68,7 @@ function parsePhases(text: string): Phase[] {
 // Here will be the data that it is pulling from
 const phases = parsePhases(designDoc)
 
-console.log(phases)
+// console.log(phases)
 
 
 
@@ -125,4 +109,4 @@ for (const phase of phases) {
 
 
 
-
+console.log(designDoc)
